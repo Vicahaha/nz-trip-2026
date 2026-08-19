@@ -103,6 +103,30 @@
   .flight-route{font-weight:600;font-size:15px;}
   .flight-time{font-size:13px;color:var(--ink-soft);margin-top:2px;}
 
+  /* ---- STAYS ---- */
+  .stay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .stay-card{
+    background:#fff;border-radius:12px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 1px 0 var(--line);
+  }
+  .stay-top{border-top:4px solid var(--teal);padding:18px 20px 16px;}
+  .stay-card.done .stay-top{border-top-color:var(--teal);}
+  .stay-range{font-size:12px;color:var(--ink-soft);margin-bottom:4px;}
+  .stay-place{font-family:var(--font-display);font-size:20px;color:var(--teal-deep);margin-bottom:6px;}
+  .stay-nights{
+    display:inline-block;font-size:11px;background:var(--paper-2);color:var(--teal-deep);
+    padding:3px 10px;border-radius:999px;margin-bottom:10px;font-weight:600;
+  }
+  .stay-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .stay-addr{font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;line-height:1.5;}
+  .stay-links{display:flex;gap:12px;font-size:12.5px;}
+  .stay-links a{color:var(--teal-deep);text-decoration:none;font-weight:600;}
+  .stay-badge{
+    display:inline-block;font-size:11px;background:#E3EFE3;color:var(--teal-deep);
+    padding:2px 9px;border-radius:999px;font-weight:700;margin-left:8px;
+  }
+
   /* ---- TIMELINE ---- */
   .phase{margin-bottom:8px;}
   .phase-head{
@@ -192,12 +216,14 @@
 <nav>
   <div class="navwrap">
     <a href="#flights">✈ 航班</a>
+    <a href="#stays">🏨 住宿</a>
     <a href="#phase1">南段起點</a>
     <a href="#phase2">西岸冰河</a>
     <a href="#phase3">皇后鎮收尾</a>
     <a href="#map">🗺 路線地圖</a>
     <a href="#wishlist">🎯 願望清單</a>
     <a href="#tips">💡 待辦提醒</a>
+    <a href="#personal-tips">🧳 個人待辦</a>
   </div>
 </nav>
 
@@ -237,6 +263,69 @@
   </div>
 </section>
 
+<section id="stays">
+  <div class="wrap">
+    <h2 class="sec-title">精選住宿清單</h2>
+    <p class="sec-sub">9晚全數確認完成 ✅</p>
+    <div class="stay-grid">
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/20 – 9/21</div>
+          <div class="stay-place">基督城</div>
+          <span class="stay-nights">1晚</span>
+          <div class="stay-name">Hotel Drifter Christchurch <span class="stay-badge">已訂</span></div>
+          <div class="stay-links"><a href="https://www.google.com/maps/search/?api=1&query=Hotel+Drifter+Christchurch" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/21 – 9/22</div>
+          <div class="stay-place">蒂卡波</div>
+          <span class="stay-nights">1晚</span>
+          <div class="stay-name">Lakes Edge Holiday Park <span class="stay-badge">已訂</span></div>
+          <div class="stay-addr">2 Lakeside Drive, Lake Tekapo</div>
+          <div class="stay-links"><a href="https://www.google.com/maps/search/?api=1&query=2+Lakeside+Drive+Lake+Tekapo" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/22 – 9/24</div>
+          <div class="stay-place">瓦納卡</div>
+          <span class="stay-nights">2晚</span>
+          <div class="stay-name">Wanaka View Motel <span class="stay-badge">已訂</span></div>
+          <div class="stay-links"><a href="https://www.wanakaviewmotel.co.nz/" target="_blank">🔗 官網</a><a href="https://www.google.com/maps/search/?api=1&query=Wanaka+View+Motel" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/24 – 9/26</div>
+          <div class="stay-place">Fox Glacier</div>
+          <span class="stay-nights">2晚</span>
+          <div class="stay-name">Ropatinis Bed & Breakfast <span class="stay-badge">已訂</span></div>
+          <div class="stay-addr">81 Cook Flat Road, 7859 福克斯冰河</div>
+          <div class="stay-links"><a href="https://www.google.com/maps/search/?api=1&query=81+Cook+Flat+Road+Fox+Glacier" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/26 – 9/29</div>
+          <div class="stay-place">皇后鎮（Frankton）</div>
+          <span class="stay-nights">3晚</span>
+          <div class="stay-name">湖濱2臥室碼頭公寓203 <span class="stay-badge">已訂</span></div>
+          <div class="stay-addr">Frankton Marina，離機場約3-5分鐘車程</div>
+          <div class="stay-links"><a href="https://www.airbnb.com.tw/rooms/1228625417407412854" target="_blank">🔗 Airbnb</a><a href="https://www.google.com/maps/search/?api=1&query=Frankton+Marina+Queenstown" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="alt" id="phase1">
   <div class="wrap">
     <div class="phase-head"><span class="pnum">01</span><h3>南段起點 · 星空與雪山</h3><span class="prange">9/20 – 9/23</span></div>
@@ -256,7 +345,7 @@
         <div class="day-title">基督城早晨 + 移動蒂卡波</div>
         <div class="day-date">9/21 週一　基督城 → 蒂卡波（約3.5hr）</div>
         <ul><li>早餐 C1 Espresso 07:00開門（走路可到）</li><li>Tenny & 俏俏一起晨跑！</li><li>步行約10分鐘（輕便不帶行李）到 Ezi Car Rental CBD（150 Kilmore Street）取車</li><li>取車後視情況繞基督城小景點或超市採買再出發</li><li>抵達蒂卡波：牧羊人教堂、湖邊散步</li><li>晚上 Mt John Observatory 觀星團</li></ul>
-        <div class="day-tags"><span class="pill">⭐ 觀星</span><span class="pill">🏞 蒂卡波湖</span><span class="pill stay">🏨 住宿：蒂卡波</span><span class="pill food">🍽 C1 Espresso（早餐）、Kohan 日式湖景定食</span></div>
+        <div class="day-tags"><span class="pill">⭐ 觀星</span><span class="pill">🏞 蒂卡波湖</span><span class="pill stay">🏨 住宿：Lakes Edge Holiday Park【已訂,僅1晚】</span><span class="pill food">🍽 C1 Espresso（早餐）、Kohan 日式湖景定食</span></div>
       </div>
     </div>
     <div class="day">
@@ -264,8 +353,8 @@
       <div class="day-body">
         <div class="day-title">庫克山國家公園</div>
         <div class="day-date">9/22 週二　蒂卡波 ↔ 庫克山（約1hr）</div>
-        <ul><li>⚠️ 蒂卡波最晚7:30出發（避免傍晚摸黑開Lindis Pass山路）</li><li>登山口：White Horse Hill Campground</li><li>Hooker Valley Track（10km來回，官方等級簡易，步行3hr，含拍照休息建議抓5hr）</li><li>健行後開車往瓦納卡，會經過 <strong>Lindis Pass Viewpoint 林迪斯隘口</strong>——紐西蘭明信片上的經典景點，超美公路，值得停車拍照</li></ul>
-        <div class="day-tags"><span class="pill stay">🏨 住宿：瓦納卡（第1晚）</span><span class="pill food">🍽 The Hermitage Hotel 邊吃邊看庫克山</span></div>
+        <ul><li>⚠️ 蒂卡波最晚7:30出發（避免傍晚摸黑開Lindis Pass山路）</li><li>🐟 途中鮭魚點，健行完回程再吃比較新鮮，看狀況二選一或都停：</li><li style="margin-left:14px;">・<strong>Mt Cook Alpine Salmon</strong>（Lake Pukaki，就在SH8/SH80路口，完全順路不繞路）——生魚片/熱燻鮭魚，正對Pukaki湖與庫克山絕美景觀（無座位無廁所，適合外帶野餐）</li><li style="margin-left:14px;">・<strong>High Country Salmon</strong>（Twizel南邊3km，需往南多繞約20分鐘來回）——有熟食、座位多、可免費餵魚，適合小孩及不吃生魚片的人（照燒烤鮭魚、巧達湯、壽司、鮭魚班尼迪克蛋）</li><li>登山口：White Horse Hill Campground</li><li>Hooker Valley Track（10km來回，官方等級簡易，步行3hr，含拍照休息建議抓5hr）</li><li>健行後開車往瓦納卡，會經過 <strong>Lindis Pass Viewpoint 林迪斯隘口</strong>——紐西蘭明信片上的經典景點，超美公路，值得停車拍照</li></ul>
+        <div class="day-tags"><span class="pill stay">🏨 住宿：Wanaka View Motel【已訂】</span><span class="pill food">🍽 The Hermitage Hotel 邊吃邊看庫克山</span></div>
       </div>
     </div>
     <div class="day">
@@ -274,7 +363,7 @@
         <div class="day-title">Roys Peak 半程健行</div>
         <div class="day-date">9/23 週三　瓦納卡（登山口車程約10分鐘）</div>
         <ul><li>早上7:00出發、7:20開爬（準備簡單食物上山，早到才有停車位）</li><li>進登山口前先付步道費 NZ$2（準備零錢）</li><li>⚠️ 中午12點前沒走到觀景台就折返，不堅持衝頂</li><li>⚠️ 每人務必攜帶至少2L水，全程無遮蔭需持續補擦防曬</li><li>穿著建議：短袖+長袖中層+輕便防風防雨外套、墨鏡、帽子、登山杖</li><li>亮點：路上可能遇到羊群</li><li>備案：若封道可改爬 Isthmus Peak</li><li>晚上瓦納卡湖畔、That Wanaka Tree 拍照，悠閒晚餐</li></ul>
-        <div class="day-tags"><span class="pill">🥾 Roys Peak半程</span><span class="pill stay">🏨 住宿：瓦納卡（第2晚）</span><span class="pill food">🍽 Federal Diner、Francesca's Italian Kitchen</span></div>
+        <div class="day-tags"><span class="pill">🥾 Roys Peak半程</span><span class="pill stay">🏨 住宿：Wanaka View Motel【已訂】</span><span class="pill food">🍽 Federal Diner、Francesca's Italian Kitchen</span></div>
       </div>
     </div>
   </div>
@@ -287,10 +376,10 @@
     <div class="day">
       <div class="day-tag travel">D06</div>
       <div class="day-body">
-        <div class="day-title">移動放鬆日：前往冰河小鎮</div>
-        <div class="day-date">9/24 週四　走 Haast Pass（約2.5hr）</div>
-        <ul><li>這天是移動放鬆日，有大自然美景，但不用太累！</li><li>Blue Pools：紐西蘭南島6號公路最熱門景點之一，停車場走路約45分鐘抵達，沿路是茂密的溫帶雨林，環境非常舒服</li><li>Fantail Falls：步道很短，整體參觀約只需30分鐘</li><li>抵達 Franz Josef 或 Fox Glacier</li></ul>
-        <div class="day-tags"><span class="pill stay">🏨 住宿：Franz Josef 或 Fox Glacier</span></div>
+        <div class="day-title">移動放鬆日：前往 Fox Glacier</div>
+        <div class="day-date">9/24 週四　走 Haast Pass（純開車3.5-4.5hr，含Blue Pools/Fantail Falls建議抓5-5.5hr）</div>
+        <ul><li>這天是移動放鬆日，有大自然美景，但不用太累！⚠️ 這段路比原先估計的長，建議一早出發</li><li>🛒 出發前先在瓦納卡採買一部分食材（Fox Glacier鎮上超市選擇少、價格較貴，出發前先補貨最划算）</li><li>Blue Pools：紐西蘭南島6號公路最熱門景點之一，停車場走路約45分鐘抵達，沿路是茂密的溫帶雨林，環境非常舒服</li><li>Fantail Falls：步道很短，整體參觀約只需30分鐘</li><li>⚠️ 這天路程長，不適合安排直升機健行，D07才是唯一的健行日</li></ul>
+        <div class="day-tags"><span class="pill stay">🏨 住宿：Ropatinis Bed & Breakfast【已訂】</span></div>
       </div>
     </div>
     <div class="day">
@@ -298,8 +387,8 @@
       <div class="day-body">
         <div class="day-title">冰河健行日</div>
         <div class="day-date">9/25 週五</div>
-        <ul><li>直升機冰河健行 Heli-Hike（看天氣，需彈性安排）</li><li>下午天氣好可去 Lake Matheson 倒影湖</li></ul>
-        <div class="day-tags"><span class="pill">❄️ 冰河健行</span><span class="pill stay">🏨 住宿：冰河小鎮</span><span class="pill food">🍽 一定要試 whitebait fritter（西岸限定小魚煎餅）</span></div>
+        <ul><li>直升機冰河健行 Heli-Hike（看天氣，需彈性安排，這是唯一健行日，若取消無備用日）</li><li>下午天氣好可去 Lake Matheson 倒影湖（就在Fox鎮附近）</li></ul>
+        <div class="day-tags"><span class="pill">❄️ 冰河健行</span><span class="pill stay">🏨 住宿：Ropatinis Bed & Breakfast【已訂】</span><span class="pill food">🍽 Betsey Jane Eatery & Bar（不接受訂位，尖峰建議提早去）、whitebait fritter西岸限定小魚煎餅</span></div>
       </div>
     </div>
     <div class="day">
@@ -471,9 +560,7 @@
     <h2 class="sec-title">待辦提醒</h2>
     <ul class="tips">
       <li>✅ 國內線機票已確定：奧克蘭→基督城（JQ237, 9/20 16:10-17:35）、皇后鎮→奧克蘭（NZ638, 9/29 07:00-08:50）</li>
-      <li>✅ D02 住宿已訂：Hotel Drifter Christchurch</li>
-      <li>✅ D03-D05 住宿已訂：Lakes Edge Holiday Park（蒂卡波，9/21-9/23，2晚）</li>
-      <li>✅ D08-D10 住宿已訂：湖濱2臥室碼頭公寓203（Frankton Marina）</li>
+      <li>✅ 所有住宿已全數確認完成！D02基督城(Hotel Drifter)、D03蒂卡波(Lakes Edge)、D04-D05瓦納卡(Wanaka View Motel)、D06-D07 Fox Glacier(Ropatinis B&B)、D08-D10皇后鎮(湖濱2臥室碼頭公寓203)</li>
       <li>✅ 租車已訂：Mazda CX-30 或同等級（Budget，5人座小型SUV），基督城取車/皇后鎮還車，TWD19,310</li>
       <li>✅ 確定不去 Milford Sound，D09 改為 Deer Park Heights + 皇后鎮悠閒日</li>
       <li>蒂卡波 Mt John Observatory 觀星團預約，需了解天氣候補機制</li>
@@ -482,6 +569,24 @@
       <li>Deer Park Heights 線上訂票（NZ$75/車，需登記租車車牌號碼，旺季容易額滿）</li>
       <li>與波許確認女兒目前身高體重，判斷是否符合 Franz Josef Heli-Hike 資格（10歲/35kg/137cm），必要時改訂 Fox Glacier Flying Fox 或 Glacier Encounter</li>
       <li>Lindis Pass / Haast Pass 是否需要雪鏈，向租車公司確認保險範圍</li>
+      <li>機場到基督城住宿 Shuttle（D02，Super Shuttle 或其他接駁方式確認）</li>
+    </ul>
+  </div>
+</section>
+
+<section class="alt" id="personal-tips">
+  <div class="wrap">
+    <h2 class="sec-title">個人出發前待辦清單</h2>
+    <p class="sec-sub">這份是個人事項，大家各自處理，不用互相等</p>
+    <ul class="tips">
+      <li>NZeTA 電子旅行授權</li>
+      <li>買 eSIM</li>
+      <li>購買旅遊保險、旅遊不便險</li>
+      <li>換匯紐幣</li>
+      <li>攜帶國際轉接頭</li>
+      <li>下載離線地圖</li>
+      <li>國際駕照</li>
+      <li>藥品、保健食品、暈車藥</li>
     </ul>
   </div>
 </section>
