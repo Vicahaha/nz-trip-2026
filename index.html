@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>紐西蘭南島 12 天自駕之旅 · SOUTH ISLAND, HERE WE GO!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2E35;
+    --ink-soft:#3E5560;
+    --paper:#F4F6F1;
+    --paper-2:#EAEEE3;
+    --teal:#2F6E63;
+    --teal-deep:#1D453D;
+    --amber:#C97B4A;
+    --amber-deep:#8F4E28;
+    --sage:#8FA88C;
+    --line:#D6DCCB;
+    --font-display:'Fraunces', serif;
+    --font-body:'Noto Sans TC', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:var(--font-body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+  }
+  a{color:var(--teal-deep);}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* ---- HERO ---- */
+  .hero{
+    background:var(--teal-deep);
+    color:#EFF3EC;
+    position:relative;
+    overflow:hidden;
+    padding-bottom:40px;
+  }
+  .ridge{display:block;width:100%;height:110px;}
+  .hero-inner{padding:8px 24px 0;text-align:center;}
+  .eyebrow{
+    font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
+    color:#B9D4C8;margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.15;
+    margin-bottom:14px;
+  }
+  .hero h1 em{font-style:italic;color:var(--amber);font-weight:500;}
+  .hero p.sub{
+    font-size:16px;color:#CBDED5;max-width:520px;margin:0 auto 34px;
+  }
+  .stats{
+    display:flex;justify-content:center;gap:0;flex-wrap:wrap;
+    border-top:1px solid rgba(255,255,255,0.15);
+    max-width:640px;margin:0 auto;
+  }
+  .stat{
+    flex:1 1 100px;padding:20px 8px;border-right:1px solid rgba(255,255,255,0.15);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:var(--font-display);font-size:30px;color:var(--amber);}
+  .stat .lbl{font-size:12px;color:#B9D4C8;margin-top:2px;}
+
+  /* ---- NAV ---- */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(244,246,241,0.95);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .navwrap{
+    max-width:920px;margin:0 auto;padding:12px 24px;
+    display:flex;gap:20px;flex-wrap:wrap;font-size:13px;
+  }
+  nav a{color:var(--ink-soft);text-decoration:none;font-weight:500;}
+  nav a:hover{color:var(--teal-deep);}
+
+  section{padding:64px 0;}
+  section.alt{background:var(--paper-2);}
+  h2.sec-title{
+    font-family:var(--font-display);font-weight:600;
+    font-size:clamp(24px,4vw,32px);margin-bottom:6px;color:var(--teal-deep);
+  }
+  p.sec-sub{color:var(--ink-soft);font-size:14px;margin-bottom:36px;}
+
+  /* ---- FLIGHTS ---- */
+  .flight-card{
+    display:flex;gap:16px;align-items:center;
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:16px 18px;margin-bottom:12px;
+  }
+  .flight-date{
+    font-family:var(--font-display);font-size:20px;color:var(--amber-deep);
+    min-width:70px;
+  }
+  .flight-date span{display:block;font-family:var(--font-body);font-size:11px;color:var(--ink-soft);}
+  .flight-route{font-weight:600;font-size:15px;}
+  .flight-time{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+
+  /* ---- STAYS ---- */
+  .stay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .stay-card{
+    background:#fff;border-radius:12px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 1px 0 var(--line);
+  }
+  .stay-top{border-top:4px solid var(--teal);padding:18px 20px 16px;}
+  .stay-card.done .stay-top{border-top-color:var(--teal);}
+  .stay-range{font-size:12px;color:var(--ink-soft);margin-bottom:4px;}
+  .stay-place{font-family:var(--font-display);font-size:20px;color:var(--teal-deep);margin-bottom:6px;}
+  .stay-nights{
+    display:inline-block;font-size:11px;background:var(--paper-2);color:var(--teal-deep);
+    padding:3px 10px;border-radius:999px;margin-bottom:10px;font-weight:600;
+  }
+  .stay-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .stay-addr{font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;line-height:1.5;}
+  .stay-links{display:flex;gap:12px;font-size:12.5px;}
+  .stay-links a{color:var(--teal-deep);text-decoration:none;font-weight:600;}
+  .stay-badge{
+    display:inline-block;font-size:11px;background:#E3EFE3;color:var(--teal-deep);
+    padding:2px 9px;border-radius:999px;font-weight:700;margin-left:8px;
+  }
+
+  /* ---- TIMELINE ---- */
+  .phase{margin-bottom:8px;}
+  .phase-head{
+    display:flex;align-items:baseline;gap:12px;margin:44px 0 20px;
+  }
+  .phase-head .pnum{
+    font-family:var(--font-display);font-size:34px;color:var(--sage);
+  }
+  .phase-head h3{font-family:var(--font-display);font-size:20px;color:var(--teal-deep);}
+  .phase-head .prange{font-size:12px;color:var(--ink-soft);}
+
+  .day{
+    display:grid;grid-template-columns:64px 1fr;gap:18px;
+    padding:18px 0;border-top:1px solid var(--line);
+  }
+  .day:first-of-type{border-top:none;}
+  .day-tag{
+    font-family:var(--font-display);font-size:15px;color:#fff;
+    background:var(--teal);border-radius:999px;
+    width:52px;height:52px;display:flex;align-items:center;justify-content:center;
+    text-align:center;line-height:1.1;
+  }
+  .day-tag.travel{background:var(--amber-deep);}
+  .day-title{font-weight:700;font-size:16px;margin-bottom:2px;}
+  .day-date{font-size:12px;color:var(--ink-soft);margin-bottom:8px;}
+  .day-body ul{margin-left:18px;font-size:14px;color:var(--ink-soft);}
+  .day-body li{margin-bottom:3px;}
+  .day-tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+  .pill{
+    font-size:11px;background:var(--paper-2);border:1px solid var(--line);
+    padding:3px 9px;border-radius:999px;color:var(--teal-deep);
+  }
+  .pill.stay{
+    background:#fff;border-color:var(--amber-deep);color:var(--amber-deep);font-weight:600;
+  }
+  .pill.food{
+    background:#fff;border-color:#993C1D;color:#993C1D;font-weight:600;
+  }
+
+  /* ---- WISHLIST ---- */
+  .wish-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+  .wish{
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px;
+  }
+  .wish h4{font-size:14px;margin-bottom:6px;color:var(--teal-deep);}
+  .wish p{font-size:13px;color:var(--ink-soft);}
+  .wish.skip{opacity:0.55;}
+  .wish.skip h4::after{content:" · 本次未排入";font-size:11px;color:var(--amber-deep);}
+
+  /* ---- TIPS ---- */
+  .tips{list-style:none;}
+  .tips li{
+    display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:14px;
+  }
+  .tips li:first-child{border-top:none;}
+  .tips li::before{content:"○";color:var(--amber-deep);flex-shrink:0;}
+
+  footer{
+    text-align:center;padding:40px 24px;font-size:12px;color:var(--ink-soft);
+    background:var(--teal-deep);color:#B9D4C8;
+  }
+
+  @media (max-width:600px){
+    .stats{max-width:100%;}
+    .day{grid-template-columns:48px 1fr;}
+    .day-tag{width:40px;height:40px;font-size:12px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="ridge" viewBox="0 0 920 110" preserveAspectRatio="none"><polygon points="0,110 0,70 60,30 130,55 210,10 300,50 380,20 470,60 560,15 650,45 730,25 820,58 920,20 920,110" fill="#1D453D"/><polygon points="0,110 0,90 90,60 180,80 260,45 340,75 430,40 520,72 610,50 700,78 800,42 920,70 920,110" fill="#24564C" opacity="0.8"/></svg>
+  <div class="hero-inner">
+    <div class="eyebrow">Christchurch → Queenstown · 西岸冰河路線</div>
+    <h1>紐西蘭南島 <em>12</em> 天自駕之旅<br><span style="font-size:0.55em;letter-spacing:0.04em;">SOUTH ISLAND, HERE WE GO!</span></h1>
+    <p class="sub">2026 / 09 / 19 – 09 / 30 · 基督城進、皇后鎮出，冰河、星空、雪山湖泊一次收藏</p>
+    <div class="stats">
+      <div class="stat"><div class="num">12</div><div class="lbl">總天數</div></div>
+      <div class="stat"><div class="num">8</div><div class="lbl">實玩天數</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">同行人數</div></div>
+      <div class="stat"><div class="num">6</div><div class="lbl">主要城鎮</div></div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="navwrap">
+    <a href="#flights">✈ 航班</a>
+    <a href="#stays">🏨 住宿</a>
+    <a href="#phase1">南段起點</a>
+    <a href="#phase2">西岸冰河</a>
+    <a href="#phase3">皇后鎮收尾</a>
+    <a href="#map">🗺 路線地圖</a>
+    <a href="#wishlist">🎯 願望清單</a>
+    <a href="#tips">💡 待辦提醒</a>
+    <a href="#personal-tips">🧳 個人待辦</a>
+  </div>
+</nav>
+
+<section id="flights">
+  <div class="wrap">
+    <h2 class="sec-title">航班資訊</h2>
+    <p class="sec-sub">台北出發，經香港轉機往返奧克蘭；南島段以基督城進、皇后鎮出</p>
+
+    <div class="flight-card">
+      <div class="flight-date">9/19<span>週六</span></div>
+      <div>
+        <div class="flight-route">台北 (TPE) → 香港 (HKG) → 奧克蘭 (AKL)</div>
+        <div class="flight-time">10:55 → 13:00　｜　21:05 → 11:40(+1)</div>
+      </div>
+    </div>
+    <div class="flight-card">
+      <div class="flight-date">9/20<span>週日</span></div>
+      <div>
+        <div class="flight-route">奧克蘭 (AKL) → 基督城 (CHC)　捷星航空 JQ237</div>
+        <div class="flight-time">16:10 → 17:35　｜　國際線11:40落地，轉機約4.5hr</div>
+      </div>
+    </div>
+    <div class="flight-card">
+      <div class="flight-date">9/29<span>週二</span></div>
+      <div>
+        <div class="flight-route">皇后鎮 (ZQN) → 奧克蘭 (AKL)　紐西蘭航空 NZ638</div>
+        <div class="flight-time">07:00 → 08:50　｜　轉機約5.5hr後接國際線</div>
+      </div>
+    </div>
+    <div class="flight-card">
+      <div class="flight-date">9/29<span>週二</span></div>
+      <div>
+        <div class="flight-route">奧克蘭 (AKL) → 香港 (HKG) → 台北 (TPE)</div>
+        <div class="flight-time">14:25 → 21:05　｜　22:50 → 00:35(+1)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stays">
+  <div class="wrap">
+    <h2 class="sec-title">精選住宿清單</h2>
+    <p class="sec-sub">9晚全數確認完成 ✅</p>
+    <div class="stay-grid">
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/20 – 9/21</div>
+          <div class="stay-place">基督城</div>
+          <span class="stay-nights">1晚</span>
+          <div class="stay-name">Hotel Drifter Christchurch <span class="stay-badge">已訂</span></div>
+          <div class="stay-links"><a href="https://www.google.com/maps/search/?api=1&query=Hotel+Drifter+Christchurch" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/21 – 9/22</div>
+          <div class="stay-place">蒂卡波</div>
+          <span class="stay-nights">1晚</span>
+          <div class="stay-name">Lakes Edge Holiday Park <span class="stay-badge">已訂</span></div>
+          <div class="stay-addr">2 Lakeside Drive, Lake Tekapo</div>
+          <div class="stay-links"><a href="https://www.google.com/maps/search/?api=1&query=2+Lakeside+Drive+Lake+Tekapo" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/22 – 9/24</div>
+          <div class="stay-place">瓦納卡</div>
+          <span class="stay-nights">2晚</span>
+          <div class="stay-name">Wanaka View Motel <span class="stay-badge">已訂</span></div>
+          <div class="stay-links"><a href="https://www.wanakaviewmotel.co.nz/" target="_blank">🔗 官網</a><a href="https://www.google.com/maps/search/?api=1&query=Wanaka+View+Motel" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/24 – 9/26</div>
+          <div class="stay-place">Fox Glacier</div>
+          <span class="stay-nights">2晚</span>
+          <div class="stay-name">Ropatinis Bed & Breakfast <span class="stay-badge">已訂</span></div>
+          <div class="stay-addr">81 Cook Flat Road, 7859 福克斯冰河</div>
+          <div class="stay-links"><a href="https://www.google.com/maps/search/?api=1&query=81+Cook+Flat+Road+Fox+Glacier" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+      <div class="stay-card done">
+        <div class="stay-top">
+          <div class="stay-range">9/26 – 9/29</div>
+          <div class="stay-place">皇后鎮（Frankton）</div>
+          <span class="stay-nights">3晚</span>
+          <div class="stay-name">湖濱2臥室碼頭公寓203 <span class="stay-badge">已訂</span></div>
+          <div class="stay-addr">Frankton Marina，離機場約3-5分鐘車程</div>
+          <div class="stay-links"><a href="https://www.airbnb.com.tw/rooms/1228625417407412854" target="_blank">🔗 Airbnb</a><a href="https://www.google.com/maps/search/?api=1&query=Frankton+Marina+Queenstown" target="_blank">📍 Google Maps</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="phase1">
+  <div class="wrap">
+    <div class="phase-head"><span class="pnum">01</span><h3>南段起點 · 星空與雪山</h3><span class="prange">9/20 – 9/23</span></div>
+
+    <div class="day">
+      <div class="day-tag travel">D02</div>
+      <div class="day-body">
+        <div class="day-title">抵達基督城</div>
+        <div class="day-date">9/20 週日</div>
+        <ul><li>11:40 奧克蘭國際線落地，與 Tenny 會合，入境轉國內線（約4.5hr轉機時間，可在機場用午餐、逛免稅店）</li><li>16:10 奧克蘭 → 17:35 基督城（JQ237）</li><li>搭 Super Shuttle 到飯店</li><li>晚餐 Riverside Market（大部分商店20:00關，走路7分鐘）</li><li>飯後散步 Cathedral Square、New Regent Street（皆走路可到）</li></ul>
+        <div class="day-tags"><span class="pill stay">🏨 住宿：Hotel Drifter Christchurch【已訂】</span><span class="pill food">🍽 Riverside Market</span></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-tag">D03</div>
+      <div class="day-body">
+        <div class="day-title">基督城早晨 + 移動蒂卡波</div>
+        <div class="day-date">9/21 週一　基督城 → 蒂卡波（約3.5hr）</div>
+        <ul><li>早餐 C1 Espresso 07:00開門（走路可到）</li><li>Tenny & 俏俏一起晨跑！</li><li>步行約10分鐘（輕便不帶行李）到 Budget（150 Kilmore Street）取車</li><li>📝 取到車後記得線上預約 Deer Park Heights（登記租車車牌號碼）</li><li>取車後視情況繞基督城小景點或超市採買再出發</li><li>抵達蒂卡波：牧羊人教堂、湖邊散步</li><li>✅ 晚上：觀星團已訂，20:00，70 Andrew Don Drive（⚠️出發前先收信確認地址是否有變更）</li></ul>
+        <div class="day-tags"><span class="pill">⭐ 觀星</span><span class="pill">🏞 蒂卡波湖</span><span class="pill stay">🏨 住宿：Lakes Edge Holiday Park【已訂,僅1晚】</span><span class="pill food">🍽 C1 Espresso（早餐）、Kohan 日式湖景定食</span></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-tag">D04</div>
+      <div class="day-body">
+        <div class="day-title">庫克山國家公園</div>
+        <div class="day-date">9/22 週二　蒂卡波 ↔ 庫克山（約1hr）</div>
+        <ul><li>⚠️ 蒂卡波最晚7:30出發（避免傍晚摸黑開Lindis Pass山路）</li><li>🐟 途中鮭魚點，健行完回程再吃比較新鮮，看狀況二選一或都停：</li><li style="margin-left:14px;">・<strong>Mt Cook Alpine Salmon</strong>（Lake Pukaki，就在SH8/SH80路口，完全順路不繞路）——生魚片/熱燻鮭魚，正對Pukaki湖與庫克山絕美景觀（無座位無廁所，適合外帶野餐）</li><li style="margin-left:14px;">・<strong>High Country Salmon</strong>（Twizel南邊3km，需往南多繞約20分鐘來回）——有熟食、座位多、可免費餵魚，適合小孩及不吃生魚片的人（照燒烤鮭魚、巧達湯、壽司、鮭魚班尼迪克蛋）</li><li>登山口：White Horse Hill Campground</li><li>Hooker Valley Track（10km來回，官方等級簡易，步行3hr，含拍照休息建議抓5hr）</li><li>健行後開車往瓦納卡，會經過 <strong>Lindis Pass Viewpoint 林迪斯隘口</strong>——紐西蘭明信片上的經典景點，超美公路，值得停車拍照</li></ul>
+        <div class="day-tags"><span class="pill stay">🏨 住宿：Wanaka View Motel【已訂】</span><span class="pill food">🍽 The Hermitage Hotel 邊吃邊看庫克山</span></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-tag travel">D05</div>
+      <div class="day-body">
+        <div class="day-title">Roys Peak 半程健行</div>
+        <div class="day-date">9/23 週三　瓦納卡（登山口車程約10分鐘）</div>
+        <ul><li>早上7:00出發、7:20開爬（準備簡單食物上山，早到才有停車位）</li><li>進登山口前先付步道費 NZ$2（準備零錢）</li><li>⚠️ 中午12點前沒走到觀景台就折返，不堅持衝頂</li><li>⚠️ 每人務必攜帶至少2L水，全程無遮蔭需持續補擦防曬</li><li>穿著建議：短袖+長袖中層+輕便防風防雨外套、墨鏡、帽子、登山杖</li><li>亮點：路上可能遇到羊群</li><li>備案：若封道可改爬 Isthmus Peak</li><li>🧶 下午：Wools of Wanaka（2 Helwick Street，紐西蘭製負鼠毛+美麗諾羊毛針織品，評分4.9星，平日約9:30am-5:30pm，離湖邊走路可到）</li><li>晚上瓦納卡湖畔、That Wanaka Tree 拍照，悠閒晚餐</li></ul>
+        <div class="day-tags"><span class="pill">🥾 Roys Peak半程</span><span class="pill stay">🏨 住宿：Wanaka View Motel【已訂】</span><span class="pill food">🍽 Federal Diner、Francesca's Italian Kitchen</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="phase2">
+  <div class="wrap">
+    <div class="phase-head"><span class="pnum">02</span><h3>西岸冰河 · 願望清單核心</h3><span class="prange">9/24 – 9/26</span></div>
+
+    <div class="day">
+      <div class="day-tag travel">D06</div>
+      <div class="day-body">
+        <div class="day-title">移動放鬆日：前往 Fox Glacier</div>
+        <div class="day-date">9/24 週四　走 Haast Pass（純開車3.5-4.5hr，含Blue Pools/Fantail Falls建議抓5-5.5hr）</div>
+        <ul><li>這天是移動放鬆日，有大自然美景，但不用太累！⚠️ 建議08:00-08:30出發，這段路比原先估計的長</li><li>🛒 出發前先在瓦納卡採買一部分食材（Fox Glacier鎮上超市選擇少、價格較貴，出發前先補貨最划算）</li><li>Blue Pools：紐西蘭南島6號公路最熱門景點之一，停車場走路約45分鐘抵達，沿路是茂密的溫帶雨林，環境非常舒服</li><li>Fantail Falls：步道很短，整體參觀約只需30分鐘</li></ul>
+        <div class="day-tags"><span class="pill stay">🏨 住宿：Ropatinis Bed & Breakfast【已訂】</span></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-tag">D07</div>
+      <div class="day-body">
+        <div class="day-title">冰河健行日</div>
+        <div class="day-date">9/25 週五</div>
+        <ul><li>✅ 俏俏+Tenny：福克斯冰川飛狐直升機健行之旅已訂，08:50場次（約3小時），⚠️08:30須抵達，逾時不候</li><li>地點：Cook Flat Road, Fox Glacier 7886</li><li>自備：必要藥物、3-4層保暖上衣、太陽眼鏡防曬、水和零食、相機（不建議穿牛仔褲）</li><li>👨‍👧 波許+女兒：自行安排行程（建議選項：West Coast Wildlife Centre，Franz Josef車程約25分鐘，奇異鳥保育中心，室內不受天氣影響，供參考）</li><li>⏰ 健行預估12:50-13:00結束</li><li>🏞 下午全家會合：Lake Matheson（環湖步道約1.5hr，天氣好可拍庫克山倒影）</li></ul>
+        <div class="day-tags"><span class="pill">❄️ 冰河健行</span><span class="pill stay">🏨 住宿：Ropatinis Bed & Breakfast【已訂】</span><span class="pill food">🍽 Betsey Jane Eatery & Bar（不接受訂位，尖峰建議提早去）、whitebait fritter西岸限定小魚煎餅</span></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-tag travel">D08</div>
+      <div class="day-body">
+        <div class="day-title">長途移動：前往皇后鎮，順道箭鎮</div>
+        <div class="day-date">9/26 週六　走 Haast Pass 接瓦納卡（約4.5–5hr）</div>
+        <ul><li>建議08:00-08:30出發</li><li>接近皇后鎮前繞道箭鎮 Arrowtown（約多30–40分鐘），逛淘金老街、秋楓景色、咖啡歇腳</li></ul>
+        <div class="day-tags"><span class="pill">🍁 箭鎮 Arrowtown</span><span class="pill stay">🏨 住宿：湖濱2臥室碼頭公寓203（Frankton Marina）【已訂】</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="phase3">
+  <div class="wrap">
+    <div class="phase-head"><span class="pnum">03</span><h3>皇后鎮收尾</h3><span class="prange">9/27 – 9/30</span></div>
+
+    <div class="day">
+      <div class="day-tag">D09</div>
+      <div class="day-body">
+        <div class="day-title">Deer Park Heights + 皇后鎮悠閒日</div>
+        <div class="day-date">9/27 週日</div>
+        <ul><li>上午：睡到自然醒，皇后鎮湖邊散步、市區小店慢慢逛</li><li>下午：Deer Park Heights（自駕野生動物公園，餵鹿/羊駝/高地牛，山頂俯瞰瓦卡蒂普湖，NZ$75/車，需提前訂票並登記車牌，帶NZ$2硬幣餵飼料）</li><li>晚餐：市區美食</li></ul>
+        <div class="day-tags"><span class="pill">🦌 Deer Park Heights</span><span class="pill stay">🏨 住宿：湖濱2臥室碼頭公寓203（Frankton Marina）</span><span class="pill food">🍽 Fergburger（排隊名店必吃）、Rata、Central Otago Pinot Noir 品飲</span></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-tag">D10</div>
+      <div class="day-body">
+        <div class="day-title">Glenorchy 騎馬</div>
+        <div class="day-date">9/28 週一</div>
+        <ul><li>✅ 騎馬已訂：Rees River Trail，9/28 09:00-11:30（243 Priory Road, Glenorchy）</li><li>⚠️ 出發前15分鐘須Check-in，不等遲到者，務必提早到</li><li>⚠️ 皇后鎮開車過去建議預留1小時以上，若冬季路況再多抓30分鐘</li><li>👕 穿著：長褲、包覆腳趾穩固鞋子（勿穿高跟鞋/涼鞋）、太陽眼鏡、防曬；冬天加外套/手套/圍巾保暖層</li><li>下午 Glenorchy 小鎮走走（魔戒場景取景地）或回皇后鎮繼續逛，時間從容</li></ul>
+        <div class="day-tags"><span class="pill">🐴 騎馬</span><span class="pill stay">🏨 住宿：湖濱2臥室碼頭公寓203（Frankton Marina）</span></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-tag travel">D11</div>
+      <div class="day-body">
+        <div class="day-title">飛行日：返程</div>
+        <div class="day-date">9/29 週二</div>
+        <ul><li>皇后鎮機場 07:00 起飛（需一早出發，注意退房與還車時間要抓早）</li><li>08:50 抵達奧克蘭，轉機約5.5hr，可在機場用早午餐、逛免稅店</li><li>14:25 銜接國際線飛香港，接續轉台北</li></ul>
+        <div class="day-tags"><span class="pill stay">🏨 住宿：機上</span></div>
+      </div>
+    </div>
+    <div class="day">
+      <div class="day-tag travel">D12</div>
+      <div class="day-body">
+        <div class="day-title">抵達台北</div>
+        <div class="day-date">9/30 週三</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="map">
+  <div class="wrap">
+    <h2 class="sec-title">插畫路線地圖</h2>
+    <p class="sec-sub">基督城到皇后鎮，八個停留點與每日重點一覽（示意圖，非精確比例）</p>
+    <svg width="100%" viewBox="0 0 680 920" role="img" style="max-width:680px;display:block;margin:0 auto;border-radius:12px;overflow:hidden;">
+<title>紐西蘭南島插畫路線圖</title>
+<desc>基督城到皇后鎮12天自駕插畫地圖，道路緞帶連接八個停留點，每站附主題小圖示</desc>
+<rect x="0" y="0" width="680" height="920" fill="#CFE7F2"/>
+<path d="M470,50 L555,170 L535,310 L475,450 L415,555 L335,635 L255,700 L175,760 L135,700 L155,600 L215,515 L195,415 L255,335 L315,255 L355,175 L415,95 Z" fill="#DCEAC0" stroke="#9CB876" stroke-width="1.5"/>
+<path d="M300,150 L330,210 L305,270 L340,330 L310,390 L345,450 L305,510 L335,570" fill="none" stroke="#B0AEA2" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+
+<path d="M460,110 L400,260 L350,330 L300,460 L220,420 L280,600 L200,680 L250,560" fill="none" stroke="#8A7A66" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M460,110 L400,260 L350,330 L300,460 L220,420 L280,600 L200,680 L250,560" fill="none" stroke="#F5EFE2" stroke-width="2" stroke-dasharray="8 8" stroke-linecap="round"/>
+
+<circle cx="460" cy="98" r="17" fill="#3C3489" stroke="#fff" stroke-width="2.5"/>
+<text x="460" y="103" text-anchor="middle" font-size="14" fill="#fff" font-weight="500">1</text>
+<rect x="500" y="80" width="130" height="46" rx="10" fill="#fff" stroke="#3C3489" stroke-width="1" opacity="0.95"/>
+<circle cx="522" cy="103" r="13" fill="#EEEDFE" stroke="#3C3489" stroke-width="1"/>
+<path d="M515,109 h14 v-10 l7,-7 7,7 v10 h-28 Z" fill="none" stroke="#3C3489" stroke-width="1.3" stroke-linejoin="round"/>
+<text x="560" y="97" text-anchor="middle" font-size="12" fill="#26215C" font-weight="500">基督城</text>
+<text x="560" y="115" text-anchor="middle" font-size="10" fill="#5F5E5A">D02 領車</text>
+
+<circle cx="400" cy="248" r="17" fill="#534AB7" stroke="#fff" stroke-width="2.5"/>
+<text x="400" y="253" text-anchor="middle" font-size="14" fill="#fff" font-weight="500">2</text>
+<rect x="440" y="222" width="150" height="52" rx="10" fill="#fff" stroke="#534AB7" stroke-width="1" opacity="0.95"/>
+<circle cx="463" cy="248" r="13" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+<polygon points="457,252 460,244 463,248 466,238 469,246 472,242 475,252" fill="none" stroke="#534AB7" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="488" cy="248" r="13" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+<circle cx="482" cy="244" r="1.6" fill="#534AB7"/><circle cx="490" cy="242" r="1.2" fill="#534AB7"/><circle cx="494" cy="250" r="1.4" fill="#534AB7"/><circle cx="485" cy="253" r="1" fill="#534AB7"/>
+<text x="546" y="238" text-anchor="middle" font-size="12" fill="#26215C" font-weight="500">蒂卡波湖</text>
+<text x="546" y="256" text-anchor="middle" font-size="10" fill="#5F5E5A">D03 觀星</text>
+
+<circle cx="350" cy="330" r="17" fill="#5F5E5A" stroke="#fff" stroke-width="2.5"/>
+<text x="350" y="335" text-anchor="middle" font-size="14" fill="#fff" font-weight="500">3</text>
+<rect x="195" y="304" width="145" height="46" rx="10" fill="#fff" stroke="#5F5E5A" stroke-width="1" opacity="0.95"/>
+<circle cx="218" cy="327" r="13" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<polygon points="209,333 217,315 225,333" fill="#EAEAE2" stroke="#5F5E5A" stroke-width="1.3" stroke-linejoin="round"/>
+<text x="285" y="322" text-anchor="middle" font-size="12" fill="#2C2C2A" font-weight="500">庫克山</text>
+<text x="285" y="340" text-anchor="middle" font-size="10" fill="#5F5E5A">D04 健行</text>
+
+<circle cx="300" cy="460" r="17" fill="#639922" stroke="#fff" stroke-width="2.5"/>
+<text x="300" y="465" text-anchor="middle" font-size="14" fill="#fff" font-weight="500">4</text>
+<rect x="330" y="434" width="135" height="46" rx="10" fill="#fff" stroke="#639922" stroke-width="1" opacity="0.95"/>
+<circle cx="353" cy="457" r="13" fill="#EAF3DE" stroke="#639922" stroke-width="1"/>
+<polygon points="346,463 353,447 360,463" fill="#7BAA3B" stroke="#3B6D11" stroke-width="1"/>
+<rect x="351" y="459" width="4" height="6" fill="#5F5E5A"/>
+<text x="415" y="452" text-anchor="middle" font-size="12" fill="#173404" font-weight="500">瓦納卡</text>
+<text x="415" y="470" text-anchor="middle" font-size="10" fill="#5F5E5A">D05 湖景</text>
+
+<circle cx="220" cy="420" r="17" fill="#185FA5" stroke="#fff" stroke-width="2.5"/>
+<text x="220" y="425" text-anchor="middle" font-size="14" fill="#fff" font-weight="500">5</text>
+<rect x="45" y="394" width="155" height="46" rx="10" fill="#fff" stroke="#185FA5" stroke-width="1" opacity="0.95"/>
+<circle cx="68" cy="417" r="13" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+<g stroke="#0C447C" stroke-width="1.6" stroke-linecap="round">
+<line x1="68" y1="410" x2="68" y2="424"/><line x1="61" y1="413" x2="75" y2="421"/><line x1="75" y1="413" x2="61" y2="421"/>
+</g>
+<text x="135" y="412" text-anchor="middle" font-size="12" fill="#042C53" font-weight="500">Franz Josef</text>
+<text x="135" y="430" text-anchor="middle" font-size="10" fill="#5F5E5A">D06-07 冰河健行</text>
+
+<circle cx="280" cy="600" r="17" fill="#3C3489" stroke="#fff" stroke-width="2.5"/>
+<text x="280" y="605" text-anchor="middle" font-size="14" fill="#fff" font-weight="500">6</text>
+<rect x="320" y="574" width="145" height="46" rx="10" fill="#fff" stroke="#3C3489" stroke-width="1" opacity="0.95"/>
+<circle cx="343" cy="597" r="13" fill="#EEEDFE" stroke="#3C3489" stroke-width="1"/>
+<path d="M336,603 h14 v-10 l7,-7 7,7 v10 h-28 Z" fill="none" stroke="#3C3489" stroke-width="1.3" stroke-linejoin="round"/>
+<text x="405" y="592" text-anchor="middle" font-size="12" fill="#26215C" font-weight="500">皇后鎮</text>
+<text x="405" y="610" text-anchor="middle" font-size="10" fill="#5F5E5A">D08 抵達/收尾</text>
+
+<circle cx="200" cy="680" r="17" fill="#0F6E56" stroke="#fff" stroke-width="2.5"/>
+<text x="200" y="685" text-anchor="middle" font-size="14" fill="#fff" font-weight="500">7</text>
+<rect x="15" y="698" width="165" height="52" rx="10" fill="#fff" stroke="#0F6E56" stroke-width="1" opacity="0.95"/>
+<circle cx="38" cy="724" r="13" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<path d="M31,721 Q35,717 39,721 T47,721" fill="none" stroke="#0F6E56" stroke-width="1.5"/>
+<path d="M31,727 Q35,723 39,727 T47,727" fill="none" stroke="#1D9E75" stroke-width="1.5"/>
+<circle cx="63" cy="724" r="13" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<path d="M56,729 l4,-10 l4,3 l4,-8 l4,15 Z" fill="#5DCAA5" stroke="#0F6E56" stroke-width="1"/>
+<text x="122" y="716" text-anchor="middle" font-size="12" fill="#04342C" font-weight="500">Deer Park Heights</text>
+<text x="122" y="734" text-anchor="middle" font-size="10" fill="#5F5E5A">D09 動物園+悠閒日</text>
+
+<circle cx="250" cy="560" r="17" fill="#993C1D" stroke="#fff" stroke-width="2.5"/>
+<text x="250" y="565" text-anchor="middle" font-size="14" fill="#fff" font-weight="500">8</text>
+<rect x="45" y="534" width="150" height="46" rx="10" fill="#fff" stroke="#993C1D" stroke-width="1" opacity="0.95"/>
+<circle cx="68" cy="557" r="13" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+<path d="M60,562 A8,8 0 1 1 76,562" fill="none" stroke="#993C1D" stroke-width="2.2"/>
+<circle cx="61" cy="555" r="1.3" fill="#993C1D"/><circle cx="75" cy="555" r="1.3" fill="#993C1D"/>
+<text x="135" y="552" text-anchor="middle" font-size="12" fill="#4A1B0C" font-weight="500">Glenorchy</text>
+<text x="135" y="570" text-anchor="middle" font-size="10" fill="#5F5E5A">D10 騎馬</text>
+
+<rect x="20" y="800" width="640" height="90" rx="10" fill="#fff" opacity="0.85"/>
+<text x="340" y="825" text-anchor="middle" font-size="12" fill="#2C2C2A" font-weight="500">基督城進・皇后鎮出　西岸冰河路線</text>
+<text x="340" y="848" text-anchor="middle" font-size="10" fill="#5F5E5A">路線示意圖，非精確比例與實際公路走向</text>
+<text x="340" y="866" text-anchor="middle" font-size="10" fill="#5F5E5A">D11 皇后鎮飛回奧克蘭轉機返台，D12 抵達台北</text>
+</svg>
+  </div>
+</section>
+
+<section id="wishlist">
+  <div class="wrap">
+    <h2 class="sec-title">願望清單對照</h2>
+    <p class="sec-sub">8 天實玩天數有取捨，這次西岸冰河路線的完成度</p>
+    <div class="wish-grid">
+      <div class="wish"><h4>❄️ 冰河健行</h4><p>D07 Fox Glacier Flying Fox Heli Hike已訂，俏俏+Tenny參加（08:50場次）；波許+女兒當天自行安排</p></div>
+      <div class="wish"><h4>⭐ 觀星行程</h4><p>D03 蒂卡波暗空保護區，20:00已訂，70 Andrew Don Drive</p></div>
+      <div class="wish"><h4>🏞 蒂卡波湖</h4><p>D03 牧羊人教堂、湖畔散策</p></div>
+      <div class="wish"><h4>🐴 騎馬散步</h4><p>D10 Glenorchy Rees River Trail，9/28 09:00-11:30，已確認預約</p></div>
+      <div class="wish"><h4>🥾 Roys Peak半程</h4><p>D05 瓦納卡，中午12點折返不衝頂，2L水+防曬必備</p></div>
+      <div class="wish"><h4>🌌 極光</h4><p>機率偏低，皇后鎮/瓦納卡晴朗夜晚可留意南方地平線</p></div>
+      <div class="wish skip"><h4>🦘 Oamaru 小袋鼠</h4><p>與西岸路線方向相反，本次犧牲</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="tips">
+  <div class="wrap">
+    <h2 class="sec-title">待辦提醒</h2>
+    <ul class="tips">
+      <li>✅ 國內線機票已確定：奧克蘭→基督城（JQ237, 9/20 16:10-17:35）、皇后鎮→奧克蘭（NZ638, 9/29 07:00-08:50）</li>
+      <li>✅ 所有住宿已全數確認完成！D02基督城(Hotel Drifter)、D03蒂卡波(Lakes Edge)、D04-D05瓦納卡(Wanaka View Motel)、D06-D07 Fox Glacier(Ropatinis B&B)、D08-D10皇后鎮(湖濱2臥室碼頭公寓203)</li>
+      <li>✅ 租車已訂：Mazda CX-30 或同等級（Budget，5人座小型SUV），基督城取車/皇后鎮還車，TWD19,310</li>
+      <li>✅ 確定不去 Milford Sound，D09 改為 Deer Park Heights + 皇后鎮悠閒日</li>
+      <li>✅ 觀星團已訂：9/21 20:00，70 Andrew Don Drive（出發前先收信確認地址）</li>
+      <li>✅ 冰河直升機健行已訂：俏俏+Tenny，9/25 08:50場次，福克斯冰川飛狐直升機健行之旅（波許+女兒當天自行安排行程）</li>
+      <li>✅ Glenorchy 騎馬已訂：Rees River Trail，9/28 09:00-11:30</li>
+      <li>Deer Park Heights 線上訂票（NZ$75/車，需登記租車車牌號碼，旺季容易額滿）</li>
+      <li>Lindis Pass / Haast Pass 是否需要雪鏈，向租車公司確認保險範圍</li>
+      <li>✅ 機場到基督城住宿 Shuttle 已訂</li>
+    </ul>
+  </div>
+</section>
+
+<section class="alt" id="personal-tips">
+  <div class="wrap">
+    <h2 class="sec-title">個人出發前待辦清單</h2>
+    <p class="sec-sub">這份是個人事項，大家各自處理，不用互相等</p>
+    <ul class="tips">
+      <li>NZeTA 電子旅行授權</li>
+      <li>買 eSIM</li>
+      <li>購買旅遊保險、旅遊不便險</li>
+      <li>換匯紐幣</li>
+      <li>攜帶國際轉接頭</li>
+      <li>下載離線地圖</li>
+      <li>國際駕照</li>
+      <li>藥品、保健食品、暈車藥</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  紐西蘭南島 12 天自駕之旅 · SOUTH ISLAND, HERE WE GO! · 2026/09/19 – 09/30
+</footer>
+
+</body>
+</html>
